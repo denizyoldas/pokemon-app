@@ -8,17 +8,17 @@ import { getPokemonList } from '@/services'
 
 interface PokemonListProps {
   data: PokemonListResponse
-  currentCount?: number
 }
 
-export default function PokemonList({ data, currentCount }: PokemonListProps) {
+export default function PokemonList({ data }: PokemonListProps) {
   const [pokemonList, setPokemonList] = useState(data.results)
-  const loadMoreHandler = async () => {
-    const newData = await getPokemonList(1)
-    setPokemonList([...pokemonList, ...newData.results])
-  }
+  const [offset, setOffset] = useState(1)
 
-  console.log('env', process.env.LIST_LIMIT)
+  const loadMoreHandler = async () => {
+    const newData = await getPokemonList(offset)
+    setPokemonList([...pokemonList, ...newData.results])
+    setOffset(offset + 1)
+  }
 
   return (
     <div>

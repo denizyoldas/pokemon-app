@@ -1,6 +1,8 @@
 import React from 'react'
 import { Image } from '../UI/image'
 import { Pokemon } from '@/models/pokemon.model'
+import Progress from '../UI/progress'
+import Link from 'next/link'
 
 interface PokemonCardProps {
   name: string
@@ -10,7 +12,7 @@ interface PokemonCardProps {
 export default function PokemonCard({ name, data }: PokemonCardProps) {
   return (
     <>
-      <h1 className="text-4xl text-bold pt-4">
+      <h1 className="text-bold pt-4 text-center text-4xl">
         {name.charAt(0).toUpperCase() + name.slice(1)}
       </h1>
       <div
@@ -22,7 +24,7 @@ export default function PokemonCard({ name, data }: PokemonCardProps) {
           alt={name}
         />
       </div>
-      <h3>Weight: {data.weight}</h3>
+      <h3 className="text-center text-gray-400">Weight: {data.weight}</h3>
       <div className="flex-col">
         {data.stats.map((statObject) => {
           const statName = statObject.stat.name
@@ -30,17 +32,22 @@ export default function PokemonCard({ name, data }: PokemonCardProps) {
 
           return (
             <div
-              className="flex items-stretch"
-              style={{ width: '500px' }}
+              className="m-4 grid grid-cols-1 items-center gap-4 md:grid-cols-2"
               key={statName}
             >
-              <h3 className="p-3 w-2/4">
+              <h3>
                 {statName}: {statValue}
               </h3>
-              <progress className="w-2/4 m-auto" value={statValue / 100} />
+              <Progress value={statValue} />
             </div>
           )
         })}
+        <Link
+          href="/"
+          className="w-full text-center text-blue-300 hover:text-blue-100"
+        >
+          Back
+        </Link>
       </div>
     </>
   )

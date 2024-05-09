@@ -9,5 +9,9 @@ interface PokemonPageProps {
 
 export default async function PokemonPage({ params }: PokemonPageProps) {
   const response = await getPokemon(params.pokemonName)
-  return <PokemonCard name={params.pokemonName} data={response} />
+  return (
+    <div>
+      <PokemonCard name={params.pokemonName} data={response} />
+    </div>
+  )
 }
