@@ -10,5 +10,5 @@ interface HomeProps {
 export default async function Home({ searchParams }: HomeProps) {
   const data = await getPokemonList(searchParams?.limit)
 
-  return <PokemonList data={data} currentCount={searchParams?.limit} />
+  return <PokemonList data={data} />
 }
