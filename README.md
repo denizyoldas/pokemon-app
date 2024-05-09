@@ -38,9 +38,9 @@ de bu repository adresiyle paylaşmanız beklenecektir.
 ## Yapilacaklar
 
 - [x] Proje oluşturuldu
-- [ ] Gerekli paketler yüklendi
-- [ ] Proje dizin yapısı oluşturuldu
-- [ ] Fake json servisi oluşturuldu
-- [ ] Listeleme sayfası oluşturuldu
-- [ ] Detay sayfası oluşturuldu
-- [ ] Route yapısı oluşturuldu
+- [x] Gerekli paketler yüklendi
+- [x] Proje dizin yapısı oluşturuldu
+- [x] Fake json servisi oluşturuldu
+- [x] Listeleme sayfası oluşturuldu
+- [x] Detay sayfası oluşturuldu
+- [x] Route yapısı oluşturuldu
