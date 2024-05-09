@@ -1,8 +1,14 @@
 import PokemonList from '@/components/pokemon/list'
 import { getPokemonList } from '@/services'
 
-export default async function Home() {
-  const data = await getPokemonList()
+interface HomeProps {
+  searchParams?: {
+    limit?: number
+  }
+}
 
-  return <PokemonList data={data} />
+export default async function Home({ searchParams }: HomeProps) {
+  const data = await getPokemonList(searchParams?.limit)
+
+  return <PokemonList data={data} currentCount={searchParams?.limit} />
 }

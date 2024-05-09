@@ -14,8 +14,8 @@ interface ListItemProps {
 export default function ListItem({ pokemon }: ListItemProps) {
   return (
     <Link
-      className="flex flex-col items-center justify-center p-4 m-4 bg-gray-100 rounded-md shadow-md"
-      href={`/${pokemon.name}`}
+      className="flex flex-col items-center justify-center rounded-md bg-gray-100 shadow-md transition-colors duration-300 ease-in-out hover:bg-gray-300"
+      href={`/detail/${pokemon.name}`}
     >
       <img
         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.url
@@ -25,8 +25,11 @@ export default function ListItem({ pokemon }: ListItemProps) {
         alt={pokemon.name}
         width={100}
         height={100}
+        className="h-40 w-full object-contain p-2"
       />
-      <div>{pokemon.name}</div>
+      <div className="w-full rounded-b-md bg-gray-400 p-2 text-center">
+        {pokemon.name}
+      </div>
     </Link>
   )
 }
