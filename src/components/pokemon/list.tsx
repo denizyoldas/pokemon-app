@@ -12,12 +12,12 @@ interface PokemonListProps {
 
 export default function PokemonList({ data }: PokemonListProps) {
   const [pokemonList, setPokemonList] = useState(data.results)
-  const [offset, setOffset] = useState(1)
+  const [offset, setOffset] = useState(10)
 
   const loadMoreHandler = async () => {
     const newData = await getPokemonList(offset)
     setPokemonList([...pokemonList, ...newData.results])
-    setOffset(offset + 1)
+    setOffset(offset + 10)
   }
 
   return (
