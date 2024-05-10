@@ -16,7 +16,7 @@ export default function Button({
       type={type}
       disabled={disabled}
       className={cx(
-        'rounded bg-blue-500 px-4 py-2 text-white transition-colors duration-300 ease-in-out hover:bg-gray-400',
+        'flex items-center justify-center gap-2 rounded bg-blue-500 px-4 py-2 text-white transition-colors duration-300 ease-in-out hover:bg-gray-400',
         {
           'cursor-not-allowed bg-gray-400': disabled
         }

@@ -5,6 +5,7 @@ import ListItem from './list-item'
 import Button from '../UI/button'
 import { useState } from 'react'
 import { getPokemonList } from '@/services'
+import Loading from '../UI/loading'
 
 interface PokemonListProps {
   data: PokemonListResponse
@@ -32,6 +33,7 @@ export default function PokemonList({ data }: PokemonListProps) {
       </div>
       <div className="mt-10 flex items-center justify-center">
         <Button onClick={loadMoreHandler} disabled={isLoading}>
+          {isLoading && <Loading />}
           Load More
         </Button>
       </div>

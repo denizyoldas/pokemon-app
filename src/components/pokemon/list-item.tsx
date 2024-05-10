@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
@@ -14,10 +15,10 @@ interface ListItemProps {
 export default function ListItem({ pokemon }: ListItemProps) {
   return (
     <Link
-      className="flex flex-col items-center justify-center rounded-md bg-gray-100 shadow-md transition-colors duration-300 ease-in-out hover:bg-gray-300"
+      className="flex flex-col items-center justify-center rounded-md bg-gray-100 shadow-md transition-all duration-300 ease-in-out hover:scale-110 hover:bg-gray-300"
       href={`/detail/${pokemon.name}`}
     >
-      <img
+      <Image
         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.url
           .split('/')
           .filter(Boolean)

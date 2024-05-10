@@ -42,12 +42,14 @@ export default function PokemonCard({ name, data }: PokemonCardProps) {
             </div>
           )
         })}
-        <Link
-          href="/"
-          className="w-full text-center text-blue-300 hover:text-blue-100"
-        >
-          Back
-        </Link>
+        <div className="m-4 text-center">
+          <Link
+            href="/"
+            className="w-full text-center text-blue-300 hover:text-blue-100"
+          >
+            Back to List
+          </Link>
+        </div>
       </div>
     </>
   )
