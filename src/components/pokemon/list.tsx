@@ -12,12 +12,15 @@ interface PokemonListProps {
 
 export default function PokemonList({ data }: PokemonListProps) {
   const [pokemonList, setPokemonList] = useState(data.results)
-  const [offset, setOffset] = useState(10)
+  const [isLoading, setIsLoading] = useState(false)
+  const [page, setPage] = useState(1)
 
   const loadMoreHandler = async () => {
-    const newData = await getPokemonList(offset)
+    setIsLoading(true)
+    const newData = await getPokemonList(page)
     setPokemonList([...pokemonList, ...newData.results])
-    setOffset(offset + 10)
+    setPage(page + 1)
+    setIsLoading(false)
   }
 
   return (
@@ -28,7 +31,9 @@ export default function PokemonList({ data }: PokemonListProps) {
         ))}
       </div>
       <div className="mt-10 flex items-center justify-center">
-        <Button onClick={loadMoreHandler}>Load More</Button>
+        <Button onClick={loadMoreHandler} disabled={isLoading}>
+          Load More
+        </Button>
       </div>
     </div>
   )
