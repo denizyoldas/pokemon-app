@@ -27,7 +27,7 @@ export default function PokemonList({ data }: PokemonListProps) {
       </div>
       <div className="mt-10 flex items-center justify-center">
         <Pagination
-          currentCount={data.count}
+          count={data.count}
           limit={Number(process.env.LIST_LIMIT)}
           // loadMoreHandler={loadMoreHandler}
           // standard
