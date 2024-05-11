@@ -73,8 +73,6 @@ export default function Pagination({
         <SlArrowLeft />
       </Button>
       <div>
-        {/* Page <strong className="text-gray-300">{active}</strong> of{' '}
-        <strong className="text-gray-300">{pageCount}</strong> */}
         <ul className="flex gap-2">
           {showPages.map((page) => (
             <li
