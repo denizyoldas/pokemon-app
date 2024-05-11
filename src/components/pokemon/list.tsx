@@ -1,41 +1,37 @@
-'use client'
-
 import { PokemonListResponse } from '@/models/pokemon.model'
 import ListItem from './list-item'
-import Button from '../UI/button'
-import { useState } from 'react'
-import { getPokemonList } from '@/services'
-import Loading from '../UI/loading'
+// import { useState } from 'react'
+// import { getPokemonList } from '@/services'
+import Pagination from './pagination'
 
 interface PokemonListProps {
   data: PokemonListResponse
 }
 
 export default function PokemonList({ data }: PokemonListProps) {
-  const [pokemonList, setPokemonList] = useState(data.results)
-  const [isLoading, setIsLoading] = useState(false)
-  const [page, setPage] = useState(1)
+  // const [pokemonList, setPokemonList] = useState(data.results)
+  // const [page, setPage] = useState(1)
 
-  const loadMoreHandler = async () => {
-    setIsLoading(true)
-    const newData = await getPokemonList(page)
-    setPokemonList([...pokemonList, ...newData.results])
-    setPage(page + 1)
-    setIsLoading(false)
-  }
+  // const loadMoreHandler = async () => {
+  //   const newData = await getPokemonList(page)
+  //   setPokemonList([...pokemonList, ...newData.results])
+  //   setPage(page + 1)
+  // }
 
   return (
     <div>
       <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-4">
-        {pokemonList?.map((pokemon) => (
+        {data.results?.map((pokemon) => (
           <ListItem key={pokemon.name} pokemon={pokemon} />
         ))}
       </div>
       <div className="mt-10 flex items-center justify-center">
-        <Button onClick={loadMoreHandler} disabled={isLoading}>
-          {isLoading && <Loading />}
-          Load More
-        </Button>
+        <Pagination
+          currentCount={data.count}
+          limit={Number(process.env.LIST_LIMIT)}
+          // loadMoreHandler={loadMoreHandler}
+          // standard
+        />
       </div>
     </div>
   )

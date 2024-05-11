@@ -1,8 +1,11 @@
+'use client'
+
 import React from 'react'
 import { Image } from '../UI/image'
 import { Pokemon } from '@/models/pokemon.model'
 import Progress from '../UI/progress'
-import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import Button from '../UI/button'
 
 interface PokemonCardProps {
   name: string
@@ -10,6 +13,8 @@ interface PokemonCardProps {
 }
 
 export default function PokemonCard({ name, data }: PokemonCardProps) {
+  const Router = useRouter()
+
   return (
     <>
       <h1 className="text-bold pt-4 text-center text-4xl">
@@ -42,13 +47,10 @@ export default function PokemonCard({ name, data }: PokemonCardProps) {
             </div>
           )
         })}
-        <div className="m-4 text-center">
-          <Link
-            href="/"
-            className="w-full text-center text-blue-300 hover:text-blue-100"
-          >
+        <div className="m-4 flex justify-center">
+          <Button variant="text" onClick={() => Router.back()}>
             Back to List
-          </Link>
+          </Button>
         </div>
       </div>
     </>

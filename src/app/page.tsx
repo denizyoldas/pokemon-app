@@ -3,12 +3,12 @@ import { getPokemonList } from '@/services'
 
 interface HomeProps {
   searchParams?: {
-    limit?: number
+    page?: number
   }
 }
 
 export default async function Home({ searchParams }: HomeProps) {
-  const data = await getPokemonList()
+  const data = await getPokemonList(searchParams?.page || 0)
 
   return <PokemonList data={data} />
 }
