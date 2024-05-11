@@ -4,11 +4,12 @@ import React from 'react'
 import Button from '../UI/button'
 import { useRouter, useSearchParams } from 'next/navigation'
 import {
-  SlArrowLeft,
-  SlArrowRight,
-  SlControlStart,
-  SlControlEnd
-} from 'react-icons/sl'
+  MdKeyboardDoubleArrowRight,
+  MdKeyboardDoubleArrowLeft,
+  MdKeyboardArrowRight,
+  MdKeyboardArrowLeft
+} from 'react-icons/md'
+
 import cx from 'classnames'
 import { twMerge } from 'tailwind-merge'
 
@@ -67,10 +68,10 @@ export default function Pagination({
         disabled={active === 1}
         onClick={() => onPageChange(1)}
       >
-        <SlControlStart />
+        <MdKeyboardDoubleArrowLeft />
       </Button>
       <Button variant="secondary" disabled={active === 1} onClick={prev}>
-        <SlArrowLeft />
+        <MdKeyboardArrowLeft />
       </Button>
       <div>
         <ul className="flex gap-2">
@@ -97,14 +98,14 @@ export default function Pagination({
         onClick={next}
         disabled={active === pageCount}
       >
-        <SlArrowRight />
+        <MdKeyboardArrowRight />
       </Button>
       <Button
         variant="secondary"
         disabled={active === pageCount}
         onClick={() => onPageChange(pageCount)}
       >
-        <SlControlEnd />
+        <MdKeyboardDoubleArrowRight />
       </Button>
     </div>
   )

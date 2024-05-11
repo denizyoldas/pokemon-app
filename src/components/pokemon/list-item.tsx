@@ -28,7 +28,7 @@ export default function ListItem({ pokemon }: ListItemProps) {
         height={100}
         className="h-40 w-full object-contain p-2"
       />
-      <div className="w-full rounded-b-md bg-gray-400 p-2 text-center">
+      <div className="w-full rounded-b-md bg-gray-400 p-2 text-center capitalize">
         {pokemon.name}
       </div>
     </Link>
