@@ -17,13 +17,8 @@ export default function PokemonCard({ name, data }: PokemonCardProps) {
 
   return (
     <>
-      <h1 className="text-bold pt-4 text-center text-4xl">
-        {name.charAt(0).toUpperCase() + name.slice(1)}
-      </h1>
-      <div
-        className="m-4"
-        style={{ position: 'relative', width: '300px', height: '300px' }}
-      >
+      <h1 className="text-bold pt-4 text-center text-4xl capitalize">{name}</h1>
+      <div className="relative m-4 h-[300px] w-[300px]">
         <Image
           image={data.sprites.other['official-artwork'].front_default}
           alt={name}
