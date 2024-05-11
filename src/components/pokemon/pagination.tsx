@@ -3,7 +3,12 @@
 import React from 'react'
 import Button from '../UI/button'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { SlArrowLeft, SlArrowRight } from 'react-icons/sl'
+import {
+  SlArrowLeft,
+  SlArrowRight,
+  SlControlStart,
+  SlControlEnd
+} from 'react-icons/sl'
 import cx from 'classnames'
 import { twMerge } from 'tailwind-merge'
 
@@ -25,7 +30,7 @@ export default function Pagination({
   const [active, setActive] = React.useState(
     Number(searchParams.get('page') || 1)
   )
-  const pageCount = Math.ceil(count / limit)
+  const pageCount = Math.round(count / limit)
   const pages = Array.from({ length: pageCount }, (_, i) => i + 1)
   const showPages = pages.filter(
     (page) => page === active || page === active - 1 || page === active + 1
@@ -57,6 +62,13 @@ export default function Pagination({
 
   return (
     <div className="flex items-center gap-4">
+      <Button
+        variant="secondary"
+        disabled={active === 1}
+        onClick={() => onPageChange(1)}
+      >
+        <SlControlStart />
+      </Button>
       <Button variant="secondary" disabled={active === 1} onClick={prev}>
         <SlArrowLeft />
       </Button>
@@ -88,6 +100,13 @@ export default function Pagination({
         disabled={active === pageCount}
       >
         <SlArrowRight />
+      </Button>
+      <Button
+        variant="secondary"
+        disabled={active === pageCount}
+        onClick={() => onPageChange(pageCount)}
+      >
+        <SlControlEnd />
       </Button>
     </div>
   )
