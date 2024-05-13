@@ -80,7 +80,7 @@ export default function Pagination({
               key={page}
               className={twMerge(
                 cx(
-                  'cursor-pointer rounded bg-gray-700 px-3 py-1 transition-colors duration-300 ease-in-out hover:bg-gray-300',
+                  'cursor-pointer rounded bg-gray-700 px-3 py-1 hover:bg-gray-300',
                   {
                     'bg-gray-300 text-gray-700': page === active
                   }
